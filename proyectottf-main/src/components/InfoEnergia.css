@@ -1,0 +1,23 @@
+.card-img-top-custom {
+  height: 120px;
+  object-fit: contain;
+  padding: 10px;
+}
+
+.energia-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.energia-card .card-body {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.card-text {
+  font-size: 0.95rem;
+  text-align: center;
+}
