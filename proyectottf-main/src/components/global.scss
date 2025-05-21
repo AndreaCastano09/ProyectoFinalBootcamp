@@ -1,0 +1,265 @@
+/* === RESET GLOBAL & TIPOGRAFÍA === */
+body,
+h1, h2, h3, h4, h5, h6,
+p, label, span, div, a,
+strong, em, small {
+  color: black !important;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+input, textarea, select {
+  color: black !important;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  padding: 0.5rem;
+  border: none;
+
+  &::placeholder {
+    color: black !important;
+    opacity: 1;
+  }
+}
+
+/* === BOTONES UNIVERSALES === */
+.btn-estilo-base {
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+
+  &:hover {
+    background-color: #00a97a;
+    color: white !important;
+    transform: scale(1.03);
+    border-color: #00a97a;
+  }
+}
+
+/* === BOTONES ESPECÍFICOS === */
+.custom-regresar,
+.btn-success {
+  @extend .btn-estilo-base;
+}
+
+.btn-ver-estimador {
+  @extend .btn-estilo-base;
+  background-color: #00796b;
+  border-color: #004d40;
+  color: white !important;
+  text-decoration: none;
+  transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+
+  &:hover {
+    background-color: #004d40;
+    border-color: #00251a;
+    transform: scale(1.05);
+  }
+}
+
+.btn-estadisticas {
+  @extend .btn-estilo-base;
+  background-color: #005b96;
+  border-color: #003f6f;
+  color: white !important;
+  text-decoration: none;
+  transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+
+  &:hover {
+    background-color: #003f6f;
+    border-color: #001f3f;
+    transform: scale(1.05);
+  }
+}
+
+/* === PÁGINA DE BIENVENIDA === */
+.bienvenida-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.fondo-imagen {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.bienvenida-overlay {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  text-align: center;
+  padding: 20px;
+  color: black;
+}
+
+.bienvenida-titulo {
+  font-size: 2.8rem;
+  margin-bottom: 12px;
+  font-weight: bold;
+}
+
+.bienvenida-texto {
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+}
+
+.boton-empezar {
+  @extend .btn-estilo-base;
+}
+
+.bienvenida-footer {
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+/* === SECCIÓN INFOENERGÍA === */
+.card-img-top-custom {
+  height: 120px;
+  object-fit: contain;
+  padding: 10px;
+}
+
+.energia-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .card-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+}
+
+.card-text {
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+/* === ESTIMADOR RENOVABLE === */
+
+// Fondo principal del estimador
+.fondo-estimador {
+  background: url('../aseets/renovable.jpg') no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Tarjeta con efecto glass
+.glass-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 2rem;
+  max-width: 600px;
+  width: 100%;
+  color: black;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+
+  .form-label {
+    font-weight: bold;
+    font-size: 0.95rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .form-control,
+  .form-select {
+    background-color: rgba(255, 255, 255, 0.6);
+    color: black;
+    margin-bottom: 1rem;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.95rem;
+    border: none;
+    border-radius: 10px;
+    transition: all 0.2s ease-in-out;
+
+    &:focus {
+      box-shadow: 0 0 0 2px rgba(40, 167, 69, 0.3);
+      outline: none;
+    }
+
+    &::placeholder {
+      color: rgba(0, 0, 0, 0.6);
+    }
+  }
+
+  .btn {
+    font-weight: bold;
+    border-radius: 10px;
+    padding: 0.6rem 1rem;
+  }
+
+  .alert {
+    border-radius: 12px;
+    font-size: 0.95rem;
+  }
+
+  .btn-primary {
+    margin-top: 1rem;
+  }
+}
+
+/* === BOTÓN ESTILO ELEGANTE === */
+
+.btn-elegante {
+  background-color: #00796b;
+  border: 2px solid #004d40;
+  color: white !important;
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-elegante:hover {
+  background-color: #004d40;
+  border-color: #00251a;
+  transform: scale(1.05);
+}
+
+.btn-icon {
+  background-color: #00a97a;
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 50%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  z-index: 50;
+
+  &:hover {
+    background-color: #007f5f;
+    transform: scale(1.1);
+  }
+}

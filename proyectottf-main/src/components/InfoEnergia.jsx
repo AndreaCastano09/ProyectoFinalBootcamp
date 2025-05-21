@@ -7,7 +7,7 @@ import solarImg from '../aseets/solar.png';
 import hidroImg from '../aseets/hidro.png';
 import biomasaImg from '../aseets/bioenergia.png';
 import geotermicaImg from '../aseets/geotermica.png';
-import './InfoEnergia.css'; 
+import './global.scss'; 
 
 const InfoEnergia = () => {
   const tarjetas = [
@@ -41,8 +41,10 @@ const InfoEnergia = () => {
   return (
     <Container className="my-5">
       <h1 className="text-center mb-4">Energía Renovable</h1>
-      <p className="text-center mb-4">Las energías renovables son fuentes de energía obtenidas de recursos naturales que se regeneran continuamente, como el sol, el viento y el agua. Se caracterizan por ser inagotables y por no generar emisiones de gases de efecto invernadero. 
-      <br></br></p>
+      <p className="text-center mb-4">
+        Las energías renovables son fuentes de energía obtenidas de recursos naturales que se regeneran continuamente,
+        como el sol, el viento y el agua. Se caracterizan por ser inagotables y por no generar emisiones de gases de efecto invernadero.
+      </p>
       <h2 className="mb-4">Tipos de Energías Renovables</h2>
       <Row className="justify-content-center">
         {tarjetas.map((card, index) => (
@@ -58,11 +60,11 @@ const InfoEnergia = () => {
         ))}
       </Row>
 
-      <div className="text-center mt-4">
-        <Link to="/estimador" className="btn btn-primary me-2">
+      <div className="text-center mt-4 d-flex justify-content-center gap-3 flex-wrap">
+        <Link to="/estimador" className="btn-elegante">
           Ir al estimador
         </Link>
-        <Link to="/graficos" className="btn btn-primary">
+        <Link to="/graficos" className="btn-elegante">
           Ver estadísticas
         </Link>
       </div>

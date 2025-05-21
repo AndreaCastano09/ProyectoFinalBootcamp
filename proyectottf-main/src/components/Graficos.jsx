@@ -1,8 +1,8 @@
+//necesito integrar Graficos.css
+import './Graficos.css';
 
 const Graficos = () => {
-
-
-    const graficos = [
+  const graficos = [
     {
       nombre: 'Producción de Energía Renovable por Fuente',
       archivo: '/gifs/top10_renovables_2022.gif',
@@ -11,21 +11,34 @@ const Graficos = () => {
       nombre: 'Participación de Energías Renovables',
       archivo: '/gifs/grafico_torta_renovables.gif',
     },
-    // Aquí puedes agregar más gráficos luego
+    {
+      nombre: 'Gráfico de Área: Consumo Renovable vs Convencional',
+      archivo: '/gifs/gifsgrafico_area_consumo.gif',
+    },
+    {
+      nombre: 'Gráfico de Líneas: Capacidad Instalada',
+      archivo: '/gifs/gifsgrafico_lineas_capacidad.gif',
+    },
   ];
 
   return (
-    <div className="p-6 max-w-5xl mx-auto">
-      <h1 className="text-3xl font-bold mb-6 text-center text-green-700">
+    <div className="contenedor-graficos">
+      <h1 className="titulo-graficos">
         Visualización de Gráficos de Energía Renovable
       </h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid-graficos">
         {graficos.map((grafico, index) => (
-            <div className="bg-white rounded-xl shadow-md p-6">
-                <h2 className="text-lg font-semibold mb-2">{grafico.nombre}</h2>
-                <img src={grafico.archivo} alt={grafico.nombre} className="w-full rounded-md border" />
-            </div>          
+          <div className="tarjeta-grafico" key={index}>
+            <h2 className="titulo-tarjeta">{grafico.nombre}</h2>
+            <img
+              src={grafico.archivo}
+              alt={grafico.nombre}
+              className="imagen-grafico"
+            />
+          </div>
         ))}
+
+        
       </div>
     </div>
   );

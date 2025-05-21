@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { FaArrowLeft, FaChartBar } from "react-icons/fa";
+import "./global.scss";
 
 const EstimadorRenovable = () => {
   const [paises, setPaises] = useState([]);
@@ -14,16 +16,14 @@ const EstimadorRenovable = () => {
 
   useEffect(() => {
     axios.get("http://localhost:8000/paises")
-      .then(res => {
-        setPaises(res.data);
-      })
+      .then(res => setPaises(res.data))
       .catch(() => setError("Error cargando países"));
   }, []);
 
   const calcular = async () => {
     try {
       const res = await axios.post("http://localhost:8000/calcular-renovable", {
-        pais: pais,
+        pais,
         anio: parseInt(anio),
         consumo_kwh: parseFloat(consumo)
       });
@@ -38,11 +38,12 @@ const EstimadorRenovable = () => {
   };
 
   return (
-    <div className="container py-5 d-flex justify-content-center">
-      <div className="card shadow p-4" style={{ maxWidth: "600px", width: "100%" }}>
+    <div className="fondo-estimador">
+      <div className="glass-card">
         <h2 className="mb-4 text-center text-success">💡 Estimador de Energía Renovable</h2>
+
         <div className="mb-3">
-          <label className="form-label fw-bold">🌍 País</label>
+          <label className="form-label">🌍 País</label>
           <select className="form-select" value={pais} onChange={e => setPais(e.target.value)}>
             <option value="">-- Selecciona un país --</option>
             {paises.map(p => (
@@ -52,7 +53,7 @@ const EstimadorRenovable = () => {
         </div>
 
         <div className="mb-3">
-          <label className="form-label fw-bold">📅 Año</label>
+          <label className="form-label">📅 Año</label>
           <input
             type="number"
             className="form-control"
@@ -63,7 +64,7 @@ const EstimadorRenovable = () => {
         </div>
 
         <div className="mb-3">
-          <label className="form-label fw-bold">⚡ Consumo eléctrico total (kWh)</label>
+          <label className="form-label">⚡ Consumo eléctrico total (kWh)</label>
           <input
             type="number"
             className="form-control"
@@ -74,26 +75,34 @@ const EstimadorRenovable = () => {
         </div>
 
         <div className="d-grid">
-          <button className="btn btn-success" onClick={calcular}>
+          <button className="btn btn-elegante" onClick={calcular}>
             Calcular Proporción
           </button>
         </div>
 
         {resultado && (
           <div className="alert alert-info mt-4 text-center">
-            <strong>{resultado}%</strong> de tu consumo podría cubrirse con energía renovables<br/>
-            <strong>{resultado1}Kw</strong> estimado de tu consumo<br/>
-            <strong>{resultado2}%</strong> estimado de tu consumo a futuro<br/>
+            <strong>{resultado}%</strong> de tu consumo podría cubrirse con energías renovables<br />
+            <strong>{resultado1} Kw</strong> estimado de tu consumo<br />
+            <strong>{resultado2}%</strong> estimado de tu consumo a futuro<br />
           </div>
         )}
 
         {error && (
           <div className="alert alert-danger mt-4 text-center">{error}</div>
         )}
-        <Link to="/" className="btn btn-primary">
-            Regresar
-      </Link>
-      </div>      
+
+        <div className="d-flex justify-content-between mt-4 gap-2 flex-wrap">
+          <Link to="/info" className="btn btn-elegante d-flex align-items-center gap-2">
+            <FaArrowLeft />
+          </Link>
+
+          <Link to="/graficos" className="btn btn-elegante d-flex align-items-center gap-2">
+            <FaChartBar />
+            Ver estadísticas
+          </Link>
+        </div>
+      </div>
     </div>
   );
 };

@@ -4,7 +4,7 @@ from pydantic import BaseModel
 import pandas as pd
 import os
 from typing import List
-from generar_graficos import generar_todos_los_graficos
+from generar_graficos import generar_graficoss
 
 app = FastAPI()
 
@@ -87,9 +87,9 @@ def calcular_renovable(datos: CalculoInput):
 @app.get("/generar-graficos")
 def generar_graficos():
     try:
-        output_path = os.path.join("D:\\TalentoTech\\Repos\\proyectottf\\public\\gifs\\")
+        output_path = os.path.join("C:\\BOOTCAMP\\proyectottf-main\\public\\gifs")
         os.makedirs(output_path, exist_ok=True)
-        generar_todos_los_graficos(output_path)
+        generar_graficoss(output_path)
         return {"message": "Gráficos generados exitosamente."}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
