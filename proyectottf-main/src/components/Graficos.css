@@ -21,7 +21,7 @@
 }
 
 .tarjeta-grafico {
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.9); /* blanco semitransparente */
   border-radius: 16px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   padding: 16px;
@@ -46,4 +46,36 @@
   object-fit: contain;
   border: 1px solid #ccc;
   border-radius: 8px;
+}
+
+.contenedor-boton-volver {
+  display: flex;
+  justify-content: center;
+  margin-top: 32px;
+}
+
+.btn-nuevo {
+  background-color: #10b981; /* Tailwind emerald-500 */
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.3s;
+}
+
+.btn-nuevo:hover {
+  background-color: #059669; 
+}
+
+.fondo-graficos {
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }

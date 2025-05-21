@@ -1,5 +1,5 @@
-//necesito integrar Graficos.css
 import './Graficos.css';
+import { FaArrowLeft } from 'react-icons/fa'; // Ícono de flecha
 
 const Graficos = () => {
   const graficos = [
@@ -21,8 +21,12 @@ const Graficos = () => {
     },
   ];
 
+  const handleVolver = () => {
+    window.history.back(); 
+  };
+
   return (
-    <div className="contenedor-graficos">
+    <div className="contenedor-graficos fondo-graficos">
       <h1 className="titulo-graficos">
         Visualización de Gráficos de Energía Renovable
       </h1>
@@ -37,8 +41,13 @@ const Graficos = () => {
             />
           </div>
         ))}
+      </div>
 
-        
+      {/* Mover el botón aquí abajo */}
+      <div className="contenedor-boton-volver">
+        <button className="btn-nuevo" onClick={handleVolver}>
+          <FaArrowLeft className="icono-flecha" />
+        </button>
       </div>
     </div>
   );
