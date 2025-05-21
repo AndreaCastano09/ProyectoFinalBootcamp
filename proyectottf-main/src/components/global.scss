@@ -159,7 +159,7 @@ input, textarea, select {
 
 // Fondo principal del estimador
 .fondo-estimador {
-  background: url('../aseets/renovable.jpg') no-repeat center center fixed;
+  background: url('../aseets/ahorrar.jpg') no-repeat center center fixed;
   background-size: cover;
   min-height: 100vh;
   display: flex;
@@ -170,8 +170,8 @@ input, textarea, select {
 // Tarjeta con efecto glass
 .glass-card {
   background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.3);
   padding: 2rem;
@@ -261,5 +261,193 @@ input, textarea, select {
   &:hover {
     background-color: #007f5f;
     transform: scale(1.1);
+  }
+}
+
+.acordeon-scroll {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1s ease;
+  padding: 2rem;
+  text-align: center;
+  color: white; // ajusta según fondo
+}
+
+.acordeon-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.pagina {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+// Sección de bienvenida (pantalla completa con fondo)
+.seccion-bienvenida {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+.fondo-imagen {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.bienvenida-overlay {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  color: white;
+  padding: 2rem;
+}
+
+// Sección de información
+.seccion-info {
+  padding: 4rem 2rem;
+  background-color: #f5f5f5;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .info-contenido {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .info-texto {
+    flex: 1;
+    min-width: 300px;
+  }
+
+  .info-imagen {
+    flex: 1;
+    min-width: 300px;
+
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+  }
+}
+
+/* === BOTÓN NUEVO PERSONALIZADO === */
+
+
+.btn-nuevo {
+  @extend .btn-estilo-base;
+  background-color: #00a97a; // verde naturaleza
+  border-color: #00a97a;
+  color: #fff !important;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 10px 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(34, 139, 34, 0.3); // sombra verde
+  transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+
+  &:hover {
+    background-color: #2e7d32;
+    border-color: #1b5e20;
+    transform: scale(1.05);
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(76, 175, 80, 0.4);
+  }
+}
+
+.contenedor-graficos {
+  position: relative;
+  min-height: 100vh;
+  width: 100vw; 
+  background-position: center center;
+  background-repeat: no-repeat;
+  padding: 2rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tarjeta-grafico {
+  background-color: rgba(255, 255, 255, 0.85); /* Blanco con transparencia */
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden; /* evita scroll horizontal */
+}
+.contenido-fondo-blanco {
+  background-image: url('../aseets/paneles.jpg');
+  padding: 2rem;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 1400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.boton-empezar {
+  background: linear-gradient(135deg, #00c896, #00796b);
+  border: none;
+  color: white;
+  font-size: 1.1rem;
+  padding: 12px 28px;
+  border-radius: 50px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+
+  &:hover {
+    background: linear-gradient(135deg, #009a79, #005f53);
+    transform: scale(1.05);
+  }
+}
+
+.infografia-beneficio {
+  background: #f9f9f9;
+  transition: transform 0.3s ease;
+  &:hover {
+    transform: scale(1.03);
+    background-color: #e0f7fa;
+  }
+}
+
+.comparativa-card {
+  font-weight: 500;
+  text-align: center;
+  transition: all 0.3s ease;
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  }
+}
+
+
+.comparativa-card {
+  transition: transform 0.3s ease;
+  &:hover {
+    transform: scale(1.02);
   }
 }
